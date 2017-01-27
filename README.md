@@ -1,4 +1,22 @@
+[![Published on webcomponents.org][webcomponents-image]][webcomponents-url]
+
 # \<gw2-coin-output\>
+
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../iron-icon/iron-icon.html">
+    <link rel="import" href="gw2-coin-output.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<gw2-coin-output coin-string="101010">...</gw2-coin-output>
+```
 
 Converts a coin string to gold, silver and copper values appended by the corresponding icon from Guild Wars 2
 
@@ -36,3 +54,6 @@ $ polymer test
 ```
 
 Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+
+[webcomponents-image]: https://img.shields.io/badge/webcomponents.org-published-blue.svg
+[webcomponents-url]: https://www.webcomponents.org/element/rediche/gw2-coin-output
