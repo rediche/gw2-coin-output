@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>gw2-coin-output demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../gw2-coin-output.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic gw2-coin-output demo</h3>
+      <p>10 gold, 10 silver, 10 copper</p>
+      <demo-snippet>
+        <template>
+          <gw2-coin-output coin-string="101010"></gw2-coin-output>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

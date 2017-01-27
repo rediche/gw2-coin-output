@@ -1,0 +1,117 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+
+<!--
+`gw2-coin-output`
+Converts a coin string to gold, silver and copper values appended by the corresponding icon from Guild Wars 2
+
+@demo demo/index.html 
+-->
+
+<dom-module id="gw2-coin-output">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .coin {
+        --iron-icon-height: 15px;
+        --iron-icon-width: 15px;
+        
+        margin-right: 4px;
+      }
+    </style>
+    
+    <template is="dom-if" if="{{ _valueIsNegative(negative) }}">
+      <span>-</span>
+    </template>
+
+    <template is="dom-if" if="{{ _isHigherThanZero(gold) }}">
+      <span>[[ gold ]] <iron-icon src="images/gold-coin.png" class="coin"></iron-icon> </span>
+    </template>
+
+    <template is="dom-if" if="{{ _isHigherThanZero(silver) }}">
+      <span>[[ silver ]] <iron-icon src="images/silver-coin.png" class="coin"></iron-icon> </span>
+    </template>
+
+    <tempalte is="dom-if" if="{{ _isHigherThanZero(copper) }}">
+      <span>[[ copper ]] <iron-icon src="images/copper-coin.png" class="coin"></iron-icon> </span>
+    </template>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'gw2-coin-output',
+
+      properties: {
+        gold: {
+          type: Number,
+          value: 0
+        },
+        silver: {
+          type: Number,
+          value: 0
+        },
+        copper: {
+          type: Number,
+          value: 0
+        },
+        negative: {
+          type: Boolean,
+          value: false
+        },
+        coinString: {
+          type: Number,
+          reflectToAttribute: true,
+          observer: '_formatToCoins'
+        }
+      },
+
+      _formatToCoins: function() {
+        var tempCoinString,
+            tempGold = 0,
+            tempSilver = 0,
+            tempCopper = 0;
+
+        if(this.coinString < 0) {
+          tempCoinString = -this.coinString;
+          this.set('negative', true);
+        } else {
+          tempCoinString = this.coinString;
+          this.set('negative', false);
+        }
+
+        tempGold = Math.floor(tempCoinString / 10000);
+        if(tempGold >= 0)
+          this.set('gold', tempGold);
+
+        tempSilver = Math.floor(tempCoinString / 100) % 100;
+        if(tempSilver >= 0)
+          this.set('silver', tempSilver);
+
+        tempCopper = tempCoinString % 100;
+        if(tempCopper >= 0)
+          this.set('copper', tempCopper);
+
+        if(this.gold == 10000) {
+          this.set('silver', tempSilver);
+          this.set('copper', tempCopper);
+        }
+      },
+
+      _valueIsNegative: function(bool) {
+        return bool;
+      },
+
+      _isHigherThanZero: function(value) {
+        if(value != 0)
+          return true;
+
+        return false;
+      }
+
+    });
+  </script>
+</dom-module>
