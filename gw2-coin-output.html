@@ -28,54 +28,55 @@ Converts a coin string to gold, silver and copper values appended by the corresp
     </template>
 
     <template is="dom-if" if="{{ _isHigherThanZero(gold) }}">
-      <span>[[ gold ]] <iron-icon src="images/gold-coin.png" class="coin"></iron-icon> </span>
+      <span>[[ gold ]] <iron-icon src="[[importPath]]images/gold-coin.png" class="coin"></iron-icon> </span>
     </template>
 
     <template is="dom-if" if="{{ _isHigherThanZero(silver) }}">
-      <span>[[ silver ]] <iron-icon src="images/silver-coin.png" class="coin"></iron-icon> </span>
+      <span>[[ silver ]] <iron-icon src="[[importPath]]images/silver-coin.png" class="coin"></iron-icon> </span>
     </template>
 
     <tempalte is="dom-if" if="{{ _isHigherThanZero(copper) }}">
-      <span>[[ copper ]] <iron-icon src="images/copper-coin.png" class="coin"></iron-icon> </span>
+      <span>[[ copper ]] <iron-icon src="[[importPath]]images/copper-coin.png" class="coin"></iron-icon> </span>
     </template>
   </template>
 
   <script>
-    Polymer({
+    class GW2CoinOutput extends Polymer.Element {
+      static get is() { return 'gw2-coin-output'; }
 
-      is: 'gw2-coin-output',
-
-      properties: {
-        gold: {
-          type: Number,
-          value: 0
-        },
-        silver: {
-          type: Number,
-          value: 0
-        },
-        copper: {
-          type: Number,
-          value: 0
-        },
-        negative: {
-          type: Boolean,
-          value: false
-        },
-        coinString: {
-          type: Number,
-          reflectToAttribute: true,
-          observer: '_formatToCoins'
+      static get properties() {
+        return {
+          gold: {
+            type: Number,
+            value: 0
+          },
+          silver: {
+            type: Number,
+            value: 0
+          },
+          copper: {
+            type: Number,
+            value: 0
+          },
+          negative: {
+            type: Boolean,
+            value: false
+          },
+          coinString: {
+            type: Number,
+            reflectToAttribute: true,
+            observer: '_formatToCoins'
+          }
         }
-      },
+      }
 
-      _formatToCoins: function() {
+      _formatToCoins() {
         var tempCoinString,
             tempGold = 0,
             tempSilver = 0,
             tempCopper = 0;
 
-        if(this.coinString < 0) {
+        if (this.coinString < 0) {
           tempCoinString = -this.coinString;
           this.set('negative', true);
         } else {
@@ -84,34 +85,39 @@ Converts a coin string to gold, silver and copper values appended by the corresp
         }
 
         tempGold = Math.floor(tempCoinString / 10000);
-        if(tempGold >= 0)
+        if (tempGold >= 0) {
           this.set('gold', tempGold);
+        }
 
         tempSilver = Math.floor(tempCoinString / 100) % 100;
-        if(tempSilver >= 0)
+        if (tempSilver >= 0) {
           this.set('silver', tempSilver);
+        }
 
-        tempCopper = tempCoinString % 100;
-        if(tempCopper >= 0)
+        tempCopper = Math.floor(tempCoinString % 100);
+        if (tempCopper >= 0) {
           this.set('copper', tempCopper);
+        }
 
-        if(this.gold == 10000) {
+        if (this.gold == 10000) {
           this.set('silver', tempSilver);
           this.set('copper', tempCopper);
         }
-      },
+      }
 
-      _valueIsNegative: function(bool) {
+      _valueIsNegative(bool) {
         return bool;
-      },
+      }
 
-      _isHigherThanZero: function(value) {
-        if(value != 0)
+      _isHigherThanZero(value) {
+        if (value != 0) {
           return true;
+        }
 
         return false;
       }
+    }
 
-    });
+    window.customElements.define(GW2CoinOutput.is, GW2CoinOutput);
   </script>
 </dom-module>
