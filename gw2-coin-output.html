@@ -123,9 +123,8 @@ Converts a coin string to gold, silver and copper values appended by the corresp
       }
 
       _prependZero(value) {
-        if (!value) return;
         if (!this.prependZeroes) return value;
-
+        
         if (value == 0) {
           return "00";
         } else if (value < 10) {
