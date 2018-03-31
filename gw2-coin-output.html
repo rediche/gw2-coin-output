@@ -1,4 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 
 <!--
@@ -16,9 +16,10 @@ Converts a coin string to gold, silver and copper values appended by the corresp
       }
 
       .coin {
-        --iron-icon-height: 15px;
-        --iron-icon-width: 15px;
-        
+        --iron-icon-height: var(--gw2-coin-output-height, 15px);
+        --iron-icon-width: var(--gw2-coin-output-width, 15px);
+
+        display: inline-block;
         margin-right: 4px;
       }
     </style>
@@ -32,11 +33,11 @@ Converts a coin string to gold, silver and copper values appended by the corresp
     </template>
 
     <template is="dom-if" if="{{ _isHigherThanZero(silver) }}">
-      <span>[[ silver ]] <iron-icon src="[[importPath]]images/silver-coin.png" class="coin"></iron-icon> </span>
+      <span>[[ _prependZero(silver) ]] <iron-icon src="[[importPath]]images/silver-coin.png" class="coin"></iron-icon> </span>
     </template>
 
     <tempalte is="dom-if" if="{{ _isHigherThanZero(copper) }}">
-      <span>[[ copper ]] <iron-icon src="[[importPath]]images/copper-coin.png" class="coin"></iron-icon> </span>
+      <span>[[ _prependZero(copper) ]] <iron-icon src="[[importPath]]images/copper-coin.png" class="coin"></iron-icon> </span>
     </template>
   </template>
 
@@ -66,6 +67,10 @@ Converts a coin string to gold, silver and copper values appended by the corresp
             type: Number,
             reflectToAttribute: true,
             observer: '_formatToCoins'
+          },
+          prependZeroes: {
+            type: Boolean,
+            value: false
           }
         }
       }
@@ -115,6 +120,19 @@ Converts a coin string to gold, silver and copper values appended by the corresp
         }
 
         return false;
+      }
+
+      _prependZero(value) {
+        if (!value) return;
+        if (!this.prependZeroes) return value;
+
+        if (value == 0) {
+          return "00";
+        } else if (value < 10) {
+          return `0${value}`;
+        } else {
+          return value;
+        }
       }
     }
 

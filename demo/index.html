@@ -18,10 +18,18 @@
   <body>
     <div class="vertical-section-container centered">
       <h3>Basic gw2-coin-output demo</h3>
-      <p>10 gold, 10 silver, 10 copper</p>
+      <p>12 gold, 34 silver, 56 copper</p>
       <demo-snippet>
         <template>
-          <gw2-coin-output coin-string="101010"></gw2-coin-output>
+          <gw2-coin-output coin-string="123456"></gw2-coin-output>
+        </template>
+      </demo-snippet>
+
+      <h3>Prepend zeroes gw2-coin-output demo</h3>
+      <p>2 gold, 4 silver, 6 copper. <small>Note: Zeroes are not prepended to gold</small></p>
+      <demo-snippet>
+        <template>
+          <gw2-coin-output prepend-zeroes coin-string="20406"></gw2-coin-output>
         </template>
       </demo-snippet>
     </div>

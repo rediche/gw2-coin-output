@@ -3,13 +3,12 @@
   "description": "Converts a coin string to gold, silver and copper values appended by the corresponding icon from Guild Wars 2",
   "main": "gw2-coin-output.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0-rc.3",
-    "iron-icon": "PolymerElements/iron-icon#2.0-preview"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "iron-icon": "PolymerElements/iron-icon#^2.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
-    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
-    "web-component-tester": "^6.0.0-prerelease.5",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.5"
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
   }
 }
