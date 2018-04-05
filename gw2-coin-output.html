@@ -30,11 +30,11 @@ Converts a coin string to gold, silver and copper values appended by the corresp
       <span>[[ gold ]] <iron-icon src="[[importPath]]images/gold-coin.png" class="coin"></iron-icon> </span>
     </template>
 
-    <template is="dom-if" if="{{ _isHigherThanZero(silver) }}">
+    <template is="dom-if" if="{{ _isHigherThanZeroAndNotPrepend(silver) }}">
       <span>[[ _prependZero(silver) ]] <iron-icon src="[[importPath]]images/silver-coin.png" class="coin"></iron-icon> </span>
     </template>
 
-    <tempalte is="dom-if" if="{{ _isHigherThanZero(copper) }}">
+    <tempalte is="dom-if" if="{{ _isHigherThanZeroAndNotPrepend(copper) }}">
       <span>[[ _prependZero(copper) ]] <iron-icon src="[[importPath]]images/copper-coin.png" class="coin"></iron-icon> </span>
     </template>
   </template>
@@ -110,6 +110,12 @@ Converts a coin string to gold, silver and copper values appended by the corresp
 
       _valueIsNegative(bool) {
         return bool;
+      }
+
+      _isHigherThanZeroAndNotPrepend(value) {
+        if (this.prependZeroes) return true;
+
+        return this._isHigherThanZero(value);
       }
 
       _isHigherThanZero(value) {
