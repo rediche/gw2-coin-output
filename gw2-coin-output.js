@@ -1,4 +1,5 @@
 import { PolymerElement } from "@polymer/polymer/polymer-element.js";
+import "@polymer/polymer/lib/elements/dom-if.js";
 import "@polymer/iron-icon/iron-icon.js";
 
 /**
@@ -8,6 +9,10 @@ import "@polymer/iron-icon/iron-icon.js";
   @demo demo/index.html 
 */
 class GW2CoinOutput extends PolymerElement {
+  static get is() {
+    return "gw2-coin-output";
+  }
+
   static get template() {
     return Polymer.html`
     <style>
@@ -38,10 +43,6 @@ class GW2CoinOutput extends PolymerElement {
       <span>[[ _prependZero(copper) ]] <iron-icon src="[[importPath]]images/copper-coin.png" class="coin"></iron-icon> </span>
     </tempalte>
     `;
-  }
-
-  static get is() {
-    return "gw2-coin-output";
   }
 
   static get properties() {
