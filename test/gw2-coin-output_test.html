@@ -9,8 +9,7 @@
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../gw2-coin-output.html">
-  </head>
+  <script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>ad>
   <body>
     <test-fixture id="basic">
       <template>
@@ -22,9 +21,12 @@
       suite('gw2-coin-output', function() {
         test('instantiating the element works', function() {
           var element = fixture('basic');
-          assert.equal(element.is, 'gw2-coin-output');
-        });
-      });
-    </script>
-  </body>
-</html>
+    <script type="module">
+import '../gw2-coin-output.js';
+suite('gw2-coin-output', function() {
+  test('instantiating the element works', function() {
+    var element = fixture('basic');
+    assert.equal(element.is, 'gw2-coin-output');
+  });
+});
+</script>
