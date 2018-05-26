@@ -3,9 +3,9 @@ import { DomIf } from "@polymer/polymer/lib/elements/dom-if.js";
 import "@polymer/iron-icon/iron-icon.js";
 
 /**
-  `gw2-coin-output`
-  Converts a coin string to gold, silver and copper values appended by the corresponding icon from Guild Wars 2
+  `gw2-coin-output` converts a coin string to gold, silver and copper values appended by the corresponding icon from Guild Wars 2.
 
+  @element gw2-coin-output
   @demo demo/index.html 
 */
 class GW2CoinOutput extends PolymerElement {
@@ -20,6 +20,10 @@ class GW2CoinOutput extends PolymerElement {
   /* Make sure we can use importPath */
   static get importMeta() { return import.meta; }
 
+  /**
+   * Returns the template of the component.
+   * @returns {html}
+   */
   static get template() {
     return html`
     <style>
