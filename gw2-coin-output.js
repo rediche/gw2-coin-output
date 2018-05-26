@@ -1,5 +1,5 @@
-import { PolymerElement } from "@polymer/polymer/polymer-element.js";
-import "@polymer/polymer/lib/elements/dom-if.js";
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js";
+import { DomIf } from "@polymer/polymer/lib/elements/dom-if.js";
 import "@polymer/iron-icon/iron-icon.js";
 
 /**
@@ -9,12 +9,19 @@ import "@polymer/iron-icon/iron-icon.js";
   @demo demo/index.html 
 */
 class GW2CoinOutput extends PolymerElement {
+  /**
+   * Returns the name of the component.
+   * @returns {string}
+   */
   static get is() {
     return "gw2-coin-output";
   }
 
+  /* Make sure we can use importPath */
+  static get importMeta() { return import.meta; }
+
   static get template() {
-    return Polymer.html`
+    return html`
     <style>
       :host {
         display: inline;
