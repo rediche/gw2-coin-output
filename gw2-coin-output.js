@@ -4,14 +4,9 @@ Converts a coin string to gold, silver and copper values appended by the corresp
 
 @demo demo/index.html 
 */
-/*
-  FIXME(polymer-modulizer): the above comments were extracted
-  from HTML and may be out of place here. Review them and
-  then delete this comment!
-*/
-import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement } from "@polymer/polymer/polymer-element.js";
+import "@polymer/iron-icon/iron-icon.js";
 
-import '@polymer/iron-icon/iron-icon.js';
 class GW2CoinOutput extends PolymerElement {
   static get template() {
     return Polymer.html`
@@ -42,10 +37,12 @@ class GW2CoinOutput extends PolymerElement {
     <tempalte is="dom-if" if="{{ _isHigherThanZeroAndNotPrepend(copper) }}">
       <span>[[ _prependZero(copper) ]] <iron-icon src="[[importPath]]images/copper-coin.png" class="coin"></iron-icon> </span>
     </tempalte>
-`;
+    `;
   }
 
-  static get is() { return 'gw2-coin-output'; }
+  static get is() {
+    return "gw2-coin-output";
+  }
 
   static get properties() {
     return {
@@ -68,47 +65,47 @@ class GW2CoinOutput extends PolymerElement {
       coinString: {
         type: Number,
         reflectToAttribute: true,
-        observer: '_formatToCoins'
+        observer: "_formatToCoins"
       },
       prependZeroes: {
         type: Boolean,
         value: false
       }
-    }
+    };
   }
 
   _formatToCoins() {
     var tempCoinString,
-        tempGold = 0,
-        tempSilver = 0,
-        tempCopper = 0;
+      tempGold = 0,
+      tempSilver = 0,
+      tempCopper = 0;
 
     if (this.coinString < 0) {
       tempCoinString = -this.coinString;
-      this.set('negative', true);
+      this.set("negative", true);
     } else {
       tempCoinString = this.coinString;
-      this.set('negative', false);
+      this.set("negative", false);
     }
 
     tempGold = Math.floor(tempCoinString / 10000);
     if (tempGold >= 0) {
-      this.set('gold', tempGold);
+      this.set("gold", tempGold);
     }
 
     tempSilver = Math.floor(tempCoinString / 100) % 100;
     if (tempSilver >= 0) {
-      this.set('silver', tempSilver);
+      this.set("silver", tempSilver);
     }
 
     tempCopper = Math.floor(tempCoinString % 100);
     if (tempCopper >= 0) {
-      this.set('copper', tempCopper);
+      this.set("copper", tempCopper);
     }
 
     if (this.gold == 10000) {
-      this.set('silver', tempSilver);
-      this.set('copper', tempCopper);
+      this.set("silver", tempSilver);
+      this.set("copper", tempCopper);
     }
   }
 
@@ -132,7 +129,7 @@ class GW2CoinOutput extends PolymerElement {
 
   _prependZero(value) {
     if (!this.prependZeroes) return value;
-    
+
     if (value == 0) {
       return "00";
     } else if (value < 10) {

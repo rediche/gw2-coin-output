@@ -11,8 +11,9 @@
   },
   "main": "gw2-coin-output.js",
   "dependencies": {
-    "@polymer/polymer": "^3.0.0",
-    "@polymer/iron-icon": "^3.0.0-pre.18"
+    "@polymer/iron-component-page": "^3.0.0-pre.19",
+    "@polymer/iron-icon": "^3.0.0-pre.18",
+    "@polymer/polymer": "^3.0.0"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.18",
