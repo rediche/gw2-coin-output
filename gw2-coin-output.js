@@ -1,12 +1,12 @@
+import { PolymerElement } from "@polymer/polymer/polymer-element.js";
+import "@polymer/iron-icon/iron-icon.js";
+
 /**
 `gw2-coin-output`
 Converts a coin string to gold, silver and copper values appended by the corresponding icon from Guild Wars 2
 
 @demo demo/index.html 
 */
-import { PolymerElement } from "@polymer/polymer/polymer-element.js";
-import "@polymer/iron-icon/iron-icon.js";
-
 class GW2CoinOutput extends PolymerElement {
   static get template() {
     return Polymer.html`
