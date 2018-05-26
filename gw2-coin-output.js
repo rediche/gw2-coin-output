@@ -121,16 +121,19 @@ class GW2CoinOutput extends PolymerElement {
     }
   }
 
+  /** @returns {boolean} */
   _valueIsNegative(bool) {
     return bool;
   }
 
+  /** @returns {boolean} */
   _isHigherThanZeroAndNotPrepend(value) {
     if (this.prependZeroes) return true;
 
     return this._isHigherThanZero(value);
   }
 
+  /** @returns {boolean} */
   _isHigherThanZero(value) {
     if (value != 0) {
       return true;
