@@ -38,6 +38,15 @@
         element.coinString = "654321";
         assert.equal(element.coinString, 654321);
       });
+      
+      test('can see value is negative', function () {
+        element.coinString = "-1";
+        assert.equal(element.negative, true);
+      });
+      
+      test('can see value is positive', function () {
+        assert.equal(element.negative, false);
+      });
     });
   </script>
 
