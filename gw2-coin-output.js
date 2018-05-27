@@ -1,6 +1,5 @@
 import { PolymerElement, html } from "@polymer/polymer/polymer-element.js";
 import { DomIf } from "@polymer/polymer/lib/elements/dom-if.js";
-import "@polymer/iron-icon/iron-icon.js";
 
 /**
   `gw2-coin-output` converts a coin string to gold, silver and copper values appended by the corresponding icon from Guild Wars 2.
@@ -32,9 +31,10 @@ class GW2CoinOutput extends PolymerElement {
       }
 
       .coin {
-        --iron-icon-height: var(--gw2-coin-output-height, 15px);
-        --iron-icon-width: var(--gw2-coin-output-width, 15px);
-        margin-right: 4px;
+        height: var(--gw2-coin-output-height, 15px);
+        width: var(--gw2-coin-output-width, 15px);
+        margin: 0 4px;
+        vertical-align: middle;
       }
     </style>
     
@@ -43,15 +43,15 @@ class GW2CoinOutput extends PolymerElement {
     </template>
 
     <template is="dom-if" if="{{ _isHigherThanZero(gold) }}">
-      <span>[[ gold ]] <iron-icon src="[[importPath]]images/gold-coin.png" class="coin"></iron-icon> </span>
+      <span>[[ gold ]]<img src="[[importPath]]images/gold-coin.png" alt="g" class="coin"> </span>
     </template>
 
     <template is="dom-if" if="{{ _isHigherThanZeroAndNotPrepend(silver) }}">
-      <span>[[ _prependZero(silver) ]] <iron-icon src="[[importPath]]images/silver-coin.png" class="coin"></iron-icon> </span>
+      <span>[[ _prependZero(silver) ]]<img src="[[importPath]]images/silver-coin.png" alt="s" class="coin"> </span>
     </template>
 
     <tempalte is="dom-if" if="{{ _isHigherThanZeroAndNotPrepend(copper) }}">
-      <span>[[ _prependZero(copper) ]] <iron-icon src="[[importPath]]images/copper-coin.png" class="coin"></iron-icon> </span>
+      <span>[[ _prependZero(copper) ]]<img src="[[importPath]]images/copper-coin.png" alt="c" class="coin"> </span>
     </tempalte>
     `;
   }

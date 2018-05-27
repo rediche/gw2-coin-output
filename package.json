@@ -12,15 +12,14 @@
     "@webcomponents/webcomponentsjs": "2.0.0-beta.2"
   },
   "dependencies": {
-    "@polymer/iron-component-page": "^3.0.0-pre.19",
-    "@polymer/iron-icon": "^3.0.0-pre.18",
-    "@polymer/polymer": "^3.0.0",
-    "@polymer/promise-polyfill": "^3.0.0-pre.19",
-    "@polymer/test-fixture": "^3.0.0-pre.19"
+    "@polymer/polymer": "^3.0.0"
   },
   "devDependencies": {
+    "@polymer/promise-polyfill": "^3.0.0-pre.19",
+    "@polymer/iron-component-page": "^3.0.0-pre.19",
     "@polymer/iron-demo-helpers": "^3.0.0-pre.18",
     "@webcomponents/webcomponentsjs": "^2.0.0",
-    "wct-browser-legacy": "^0.0.1-pre.11"
+    "wct-browser-legacy": "^0.0.1-pre.11",
+    "@polymer/test-fixture": "^3.0.0-pre.19"
   }
 }
