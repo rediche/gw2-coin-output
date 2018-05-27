@@ -33,6 +33,11 @@
       test('instantiating the element works', function () {
         assert.equal(element.coinString, 123456);
       });
+
+      test('can change value of coin-string attr', function () {
+        element.coinString = "654321";
+        assert.equal(element.coinString, 654321);
+      });
     });
   </script>
 
