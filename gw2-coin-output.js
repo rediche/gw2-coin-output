@@ -70,10 +70,12 @@ class GW2CoinOutput extends PolymerElement {
         type: Number,
         value: 0
       },
+      /* TODO: Make negative a computed value based on coinString */
       negative: {
         type: Boolean,
         value: false
       },
+      /* TODO: Breaking change: Make coinString be renamed to value */
       coinString: {
         type: Number,
         reflectToAttribute: true,
