@@ -88,6 +88,7 @@ class GW2CoinOutput extends PolymerElement {
     };
   }
 
+  /* TODO: Make more like functional programming */
   _formatToCoins() {
     var tempCoinString,
       tempGold = 0,
@@ -135,6 +136,7 @@ class GW2CoinOutput extends PolymerElement {
     return this._isHigherThanZero(value);
   }
 
+  /* TODO: This doesn't check for higher than zero, but just different than zero */
   /** @returns {boolean} */
   _isHigherThanZero(value) {
     if (value != 0) {
