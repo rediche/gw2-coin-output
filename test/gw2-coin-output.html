@@ -9,9 +9,7 @@
 
   <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
   <script src="../node_modules/wct-browser-legacy/browser.js"></script>
-
   <script type="module" src="../gw2-coin-output.js"></script>
-  <script type="module" src="../node_modules/@polymer/promise-polyfill/promise-polyfill.js"></script>
 </head>
 
 <body>
@@ -38,16 +36,16 @@
         element.coinString = "654321";
         assert.equal(element.coinString, 654321);
       });
-      
+
       test('can see value is negative', function () {
         element.coinString = "-1";
         assert.equal(element.negative, true);
       });
-      
+
       test('can see value is positive', function () {
         assert.equal(element.negative, false);
       });
-      
+
       test('gold value is correct', function () {
         assert.equal(element.gold, 12);
       });
