@@ -4,6 +4,7 @@
   "version": "2.0.0",
   "author": "Marcus Asbæk Geil",
   "main": "gw2-coin-output.js",
+  "license": "MIT",
   "resolutions": {
     "inherits": "2.0.3",
     "samsam": "1.1.3",
