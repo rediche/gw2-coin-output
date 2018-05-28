@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>gw2-coin-output test</title>
+
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+  <script type="module" src="../gw2-coin-output.js"></script>
+</head>
+
+<body>
+  <test-fixture id="basic">
+    <template>
+      <gw2-coin-output coin-string="123456"></gw2-coin-output>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('<gw2-coin-output>', function () {
+      let element;
+
+      setup(function () {
+        element = fixture('basic');
+      });
+
+      test('instantiating the element works', function () {
+        assert.equal(element.coinString, 123456);
+      });
+
+      test('can change value of coin-string attr', function () {
+        assert.equal(element.coinString, 123456);
+        element.coinString = "654321";
+        assert.equal(element.coinString, 654321);
+      });
+
+      test('can see value is negative', function () {
+        element.coinString = "-1";
+        assert.equal(element.negative, true);
+      });
+
+      test('can see value is positive', function () {
+        assert.equal(element.negative, false);
+      });
+
+      test('gold value is correct', function () {
+        assert.equal(element.gold, 12);
+      });
+
+      test('silver value is correct', function () {
+        assert.equal(element.silver, 34);
+      });
+
+      test('copper value is correct', function () {
+        assert.equal(element.copper, 56);
+      });
+    });
+  </script>
+
+</body>
+
+</html>
