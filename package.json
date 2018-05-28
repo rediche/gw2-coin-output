@@ -1,7 +1,7 @@
 {
   "description": "Converts a coin string to gold, silver and copper values appended by the corresponding icon from Guild Wars 2",
   "name": "gw2-coin-output",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Marcus Asbæk Geil",
   "main": "gw2-coin-output.js",
   "license": "MIT",
