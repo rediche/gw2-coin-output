@@ -6,9 +6,8 @@
 ```
 <custom-element-demo>
   <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../iron-icon/iron-icon.html">
-    <link rel="import" href="gw2-coin-output.html">
+    <script src="./node_modules/webcomponentsjs/webcomponents-lite.js"></script>
+    <script type="module" href="gw2-coin-output.js"></script>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
@@ -26,9 +25,8 @@ Converts a coin string to gold, silver and copper values appended by the corresp
 ```
 <custom-element-demo>
   <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../iron-icon/iron-icon.html">
-    <link rel="import" href="gw2-coin-output.html">
+    <script src="./node_modules/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script type="module" href="gw2-coin-output.js"></script>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
@@ -43,7 +41,7 @@ This prepends zeroes to silver and copper values if they are less than 10. Usefu
 ## Install
 
 ```
-bower install --save rediche/gw2-coin-output
+npm i --save gw2-coin-output
 ```
 
 ## Development
