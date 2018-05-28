@@ -34,6 +34,7 @@
       });
 
       test('can change value of coin-string attr', function () {
+        assert.equal(element.coinString, 123456);
         element.coinString = "654321";
         assert.equal(element.coinString, 654321);
       });
